@@ -4,8 +4,9 @@ def app():
     st.title('About')
 
     st.write("This webapp allows researchers to calculate **network entropy** from any omic-based dataset. Network entropy provides an estimate of molecular \"disorder\" of a system, with a higher network entropy representing a probabilistically greater degree of disorganization or randomness in the system. ")
-    st.write("This is published as a part of the manuscript: ")
-    st.write("**Pius, A., Clemens, Z., Sivakumar, S., Sahu, A., Shinde, S., Mamiya, H., ... & Ambrosio, F. (2020). The biphasic and age-dependent impact of Klotho on hallmarks of aging and skeletal muscle function. bioRxiv. (eLife, under revision)** ")
+    st.write("This is published as a part of the manuscript **(eLife, under revision)**:  ")
+    st.write("Link to manuscript DOI:[https://doi.org/10.1101/2020.07.22.207043](https://doi.org/10.1101/2020.07.22.207043)")
+    st.write("**Pius, A., Clemens, Z., Sivakumar, S., Sahu, A., Shinde, S., Mamiya, H., ... & Ambrosio, F. (2020). The biphasic and age-dependent impact of Klotho on hallmarks of aging and skeletal muscle function. bioRxiv. ** ")
     st.text("")
     st.write("The mathematical basis for the network entropy calculation used in this study was first described by Menichetti. et. al.:")
     st.write("**Menichetti, G., Bianconi, G., Castellani, G., Giampieri, E., & Remondini, D. (2015). Multiscale characterization of ageing and cancer progression by a novel network entropy measure. Molecular BioSystems, 11(7), 1824-1831.**")
