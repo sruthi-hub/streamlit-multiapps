@@ -230,27 +230,29 @@ def get_table_download_link(df):
     
     
 #'''Streamlit portion'''
-uploaded_nodes = st.file_uploader("Upload your nodelist", type="CSV")
-if uploaded_nodes is not None:
-    nodelist = pd.read_csv(uploaded_nodes)
-    nodelist.columns=['ens_id','expr_val']
+def app():
+    st.title("Network entropy calculator")
+    uploaded_nodes = st.file_uploader("Upload your nodelist", type="CSV")
+    if uploaded_nodes is not None:
+        nodelist = pd.read_csv(uploaded_nodes)
+        nodelist.columns=['ens_id','expr_val']
 
-uploaded_edges = st.file_uploader("Upload your edgelist", type="CSV")
-if uploaded_edges is not None:
-    edgelist = pd.read_csv(uploaded_edges)
-    edgelist.columns=['source','target']
+    uploaded_edges = st.file_uploader("Upload your edgelist", type="CSV")
+    if uploaded_edges is not None:
+        edgelist = pd.read_csv(uploaded_edges)
+        edgelist.columns=['source','target']
 
 
-#creating a new csv file to write computed spatial entropy values and giving headers
-fieldnames = ['nodelist','edgelist','num_nodes','num_edges', 'giulia_spatial_entropy','giulia_config_entropy','entropy_subtracted_baseline','runtime']
+    #creating a new csv file to write computed spatial entropy values and giving headers
+    fieldnames = ['nodelist','edgelist','num_nodes','num_edges', 'giulia_spatial_entropy','giulia_config_entropy','entropy_subtracted_baseline','runtime']
 
-df=pd.DataFrame(columns=fieldnames)
+    df=pd.DataFrame(columns=fieldnames)
 
-if st.button('Generate Spatial Entropy'):
-    myoutput=giulia_config_spatial_entropy(edgelist,nodelist)
-    newdf = pd.DataFrame([myoutput])
-    df=df.append(newdf)
-    st.dataframe(df)
-    st.markdown(get_table_download_link(df), unsafe_allow_html=True)
-    #get_table_download_link()
+    if st.button('Generate Spatial Entropy'):
+        myoutput=giulia_config_spatial_entropy(edgelist,nodelist)
+        newdf = pd.DataFrame([myoutput])
+        df=df.append(newdf)
+        st.dataframe(df)
+        st.markdown(get_table_download_link(df), unsafe_allow_html=True)
+        #get_table_download_link()
 #'''End'''
