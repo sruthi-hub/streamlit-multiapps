@@ -1,8 +1,8 @@
-streamlit
-numpy
-pandas
-networkx
-numexpr
-scipy
-tqdm
-pybase64
+streamlit==0.77.0
+numpy==1.18.1
+pandas==1.1.4
+networkx==2.5
+numexpr==2.7.1
+scipy==1.6.0
+tqdm==4.46.1
+pybase64==1.1.4
