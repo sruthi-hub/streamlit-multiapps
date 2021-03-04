@@ -1,3 +1,8 @@
 streamlit
 numpy
 pandas
+networkx
+numexpr
+scipy
+tqdm
+pybase64
