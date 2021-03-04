@@ -1,4 +1,4 @@
-# streamlit-multiapps
+# Network entropy calculator - streamlit app
 Network entropy calculator based on omic-based datasets.
 
 # How to Run
