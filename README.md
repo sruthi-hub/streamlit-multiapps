@@ -1,46 +1,32 @@
 # streamlit-multiapps
-A simple framework in python to create multi page web application using streamlit.
+Network entropy calculator based on omic-based datasets.
 
 # How to Run
 
-1. Clone the repository:
-```
-$ git clone git@github.com:upraneelnihar/streamlit-multiapps
-$ cd streamlit-multiapps
-```
+1. Follow preprocessing steps from example sruthi-hub/sarcopenia-network-entropy
 
-2. Install dependencies:
-```
-$ pip install -r requirements.txt
-```
+This example shows how to map raw transcriptomic counts to generate protein-protein interaction network.
 
-3. Start the application:
-```
-streamlit run app.py
-```
+2. Create nodelists and edgelists
 
-# How to add new app
+For bulk RNA-seq data, one sample (or animal) would have one nodelist and one edgelist. 
 
-1. Add a new python file in `apps/`  folder with a function named `app`.
+3. Upload nodelist and edgelist and interpretation of network entropy
 
-```
-# apps/new_app.py
+Network entropy value can be extracted from the CSV file output from the webapp. 
+This value becomes meaningful when one wants to compare across samples. 
+Increasing entropy corresponds to increasing molecular disorder or increased flexibility of the system.
+Decreasing entropy corresponds to decreasing molecular disorder or increased rigidity of the system. 
 
-import streamlit as st
 
-def app():
-    st.title('New App')
-```
+# More information:
+Please refer to the following papers for more details on implementation and interpretation:
 
-2. Now add it to `app.py`
+1. https://pubs.rsc.org/en/content/getauthorversionpdf/c5mb00143a
+Menichetti, G., Bianconi, G., Castellani, G., Giampieri, E., & Remondini, D. (2015). Multiscale characterization of ageing and cancer progression by a novel network entropy measure. Molecular BioSystems, 11(7), 1824-1831.
 
-```
-from apps import newapp # import your app modules here
+2. Under review at eLife
+The biphasic and age-dependent impact of Klotho on hallmarks of aging and skeletal muscle function
+Abish Pius, Zachary Clemens, Sruthi Sivakumar, Amrita Sahu, Sunita Shinde, Hikaru Mamiya, Nathaniel Luketich, Jian Cui, Joerg D. Hoeck, Sebastian Kreuz, Michael Franti, Aaron Barchowsky, Fabrisia Ambrosio
+bioRxiv 2020.07.22.207043; doi: https://doi.org/10.1101/2020.07.22.207043
 
-app = MultiApp()
-
-# Add all your application here
-app.add_app("New App", newapp.app)
-```
-
-That's it your new app is added to your application and is live in default browser.
